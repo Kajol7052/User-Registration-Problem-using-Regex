@@ -2,7 +2,7 @@
 # @Author: Kajol.Patira
 # @Date:   2021-01-08 14:01:23
 # @Last Modified by:   Kajol.Patira
-# @Last Modified time: 2021-01-08 16:10:14
+# @Last Modified time: 2021-01-08 16:25:53
 
 import re
 
@@ -16,7 +16,7 @@ class UserRegistration:
         self.name_match = "^[A-Z]{1}[a-z]{2,}$"
         self.email_match = "^\w{3,}(\.\w{3,})*\@[a-z]{2,}\.[a-z]{2,3}(\.[a-z]{2})*$"
         self.phone_match = "^(\\+91|91)[ ]{1}[6-9]{1}[0-9]{9}$"
-        self.password_match = "[A-Za-z-0-9]{8,}"
+        self.password_match = "(?=.*[A-Z]).{8,}$"
         
     
     def input_validation(self, my_regex, name):
@@ -67,6 +67,7 @@ class UserRegistration:
 
 
     # UC-5: Validate User Password to have minimum 8 characters(Rule-1)
+    # UC-6: Validate User Password to have atleast 1 uppercase character(Rule-2)
     def password_validation(self):
         """
         function return the password is valid or not
