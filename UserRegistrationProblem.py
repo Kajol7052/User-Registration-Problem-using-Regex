@@ -2,7 +2,7 @@
 # @Author: Kajol.Patira
 # @Date:   2021-01-08 14:01:23
 # @Last Modified by:   Kajol.Patira
-# @Last Modified time: 2021-01-08 16:01:55
+# @Last Modified time: 2021-01-08 16:10:14
 
 import re
 
@@ -16,6 +16,7 @@ class UserRegistration:
         self.name_match = "^[A-Z]{1}[a-z]{2,}$"
         self.email_match = "^\w{3,}(\.\w{3,})*\@[a-z]{2,}\.[a-z]{2,3}(\.[a-z]{2})*$"
         self.phone_match = "^(\\+91|91)[ ]{1}[6-9]{1}[0-9]{9}$"
+        self.password_match = "[A-Za-z-0-9]{8,}"
         
     
     def input_validation(self, my_regex, name):
@@ -26,7 +27,7 @@ class UserRegistration:
         if my_match:
             return name
         else:
-            return "Invalid Name! Please try again!"
+            return "Invalid Input! Please try again!"
 
     # UC-1: Validate FirstName(First letter should br capital and name should have min 3 characters)
     def first_name_validation(self):
@@ -58,8 +59,21 @@ class UserRegistration:
 
     # UC-4: Validate Mobile Number
     def mobile_validation(self):
+        """
+        function return the mobile number is valid or not
+        """
         mobile = input("Enter mobile number: ")
         return RegisterUser.input_validation(self.phone_match, mobile)
+
+
+    # UC-5: Validate User Password to have minimum 8 characters(Rule-1)
+    def password_validation(self):
+        """
+        function return the password is valid or not
+        """
+        password = input("Enter password: ")
+        return RegisterUser.input_validation(self.password_match, password)
+
 
 if __name__ == '__main__':
     RegisterUser = UserRegistration()
@@ -67,4 +81,5 @@ if __name__ == '__main__':
     print(RegisterUser.last_name_validation())
     print(RegisterUser.email_validation())
     print(RegisterUser.mobile_validation())
+    print(RegisterUser.password_validation())
     
