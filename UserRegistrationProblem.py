@@ -2,7 +2,7 @@
 # @Author: Kajol.Patira
 # @Date:   2021-01-08 14:01:23
 # @Last Modified by:   Kajol.Patira
-# @Last Modified time: 2021-01-08 15:31:19
+# @Last Modified time: 2021-01-08 16:01:55
 
 import re
 
@@ -15,7 +15,8 @@ class UserRegistration:
         """
         self.name_match = "^[A-Z]{1}[a-z]{2,}$"
         self.email_match = "^\w{3,}(\.\w{3,})*\@[a-z]{2,}\.[a-z]{2,3}(\.[a-z]{2})*$"
-
+        self.phone_match = "^(\\+91|91)[ ]{1}[6-9]{1}[0-9]{9}$"
+        
     
     def input_validation(self, my_regex, name):
         """
@@ -45,7 +46,8 @@ class UserRegistration:
         last_name = input("Enter last name: ")
         self.regex_validation()
         return RegisterUser.input_validation(self.name_match, last_name)
-        
+
+    # UC-3: Validate Email Address     
     def email_validation(self):
         """
         function return the email is valid or not
@@ -53,9 +55,16 @@ class UserRegistration:
         email = input("Enter email: ")
         return RegisterUser.input_validation(self.email_match, email)
 
+
+    # UC-4: Validate Mobile Number
+    def mobile_validation(self):
+        mobile = input("Enter mobile number: ")
+        return RegisterUser.input_validation(self.phone_match, mobile)
+
 if __name__ == '__main__':
     RegisterUser = UserRegistration()
     print(RegisterUser.first_name_validation())
     print(RegisterUser.last_name_validation())
     print(RegisterUser.email_validation())
+    print(RegisterUser.mobile_validation())
     
