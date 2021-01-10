@@ -2,7 +2,7 @@
 # @Author: Kajol.Patira
 # @Date:   2021-01-08 14:01:23
 # @Last Modified by:   Kajol.Patira
-# @Last Modified time: 2021-01-08 16:38:54
+# @Last Modified time: 2021-01-09 23:25:57
 # @Title: User Validation System needs to ensure that all validations are in place during the user entry.
 
 import re
@@ -15,7 +15,8 @@ class UserRegistration:
         function to initialize all regex 
         """
         self.name_match = "^[A-Z]{1}[a-z]{2,}$"
-        self.email_match = "^\w{3,}(\.\w{3,})*\@[a-z]{2,}\.[a-z]{2,3}(\.[a-z]{2})*$"
+        #self.email_match = "^\w{3,}(\.\w{3,})*\@[a-z]{2,}\.[a-z]{2,3}(\.[a-z]{2})*$"
+        self.email_match ="^[a-zA-Z]{1}[a-zA-Z0-9]+([-\\.\\_\\+]?[0-9a-zA-Z]+)*\\@[a-zA-Z]+([\\.][a-z]{2,4})?([\\.][a-z]{2,4})$"
         self.phone_match = "^(\\+91|91)[ ]{1}[6-9]{1}[0-9]{9}$"
         self.password_match = "(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$"
         
